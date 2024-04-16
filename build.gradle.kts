@@ -23,8 +23,10 @@ extra["springCloudVersion"] = "2023.0.1"
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
-	implementation("org.springframework.cloud:spring-cloud-function-context")
+	implementation("org.springframework.cloud:spring-cloud-stream-binder-rabbit")
+	implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.17.0")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	testImplementation("io.projectreactor:reactor-test")
 }
 
 dependencyManagement {
