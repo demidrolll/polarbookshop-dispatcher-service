@@ -47,3 +47,16 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+tasks.bootBuildImage {
+	imageName.set(project.name)
+	environment.set(mapOf("BP_JVM_VERSION" to "17.*"))
+
+	docker {
+		publishRegistry {
+			project.findProperty("registryUsername")?.let { username.set(it as String) }
+			project.findProperty("registryToken")?.let { password.set(it as String) }
+			project.findProperty("registryUrl")?.let { url.set(it as String) }
+		}
+	}
+}
