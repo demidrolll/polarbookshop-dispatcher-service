@@ -33,3 +33,7 @@ spring:
     password: "guest"
     connection-timeout: 5s
     virtual-host: "/"
+
+logging:
+  pattern:
+    level: "%5p [${spring.application.name},%X{trace_id},%X{span_id}]"

@@ -19,6 +19,7 @@ repositories {
 }
 
 extra["springCloudVersion"] = "2023.0.1"
+extra["otelVersion"] = "2.6.0"
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter")
@@ -29,6 +30,9 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.projectreactor:reactor-test")
 	testImplementation("org.springframework.cloud:spring-cloud-stream-test-binder")
+
+	runtimeOnly("io.micrometer:micrometer-registry-prometheus")
+	runtimeOnly("io.opentelemetry.javaagent:opentelemetry-javaagent:${property("otelVersion")}")
 }
 
 dependencyManagement {
